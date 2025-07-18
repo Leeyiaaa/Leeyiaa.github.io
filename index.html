@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>烦恼消除机</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f8f9fa;
+            font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            background: white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #ff7a9c;
+            margin-bottom: 20px;
+        }
+        #message {
+            font-size: 18px;
+            margin: 20px 0;
+            min-height: 40px;
+        }
+        #btn {
+            padding: 12px 24px;
+            background-color: #ff7a9c;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        #btn:hover {
+            background-color: #ff5a85;
+        }
+        .animation {
+            margin-top: 20px;
+            height: 100px;
+            font-size: 20px;
+            color: #ff7a9c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>烦恼消除机</h1>
+        <p>点击下方按钮，消除烦恼吧～</p>
+        <div id="message">等待消除烦恼中...</div>
+        <button id="btn">消除烦恼</button>
+        <div class="animation" id="animation"></div>
+    </div>
+
+    <script>
+        // 随机搞笑句子库
+        const messages = [
+            "刚才的烦恼已经被小猫吃掉啦～",
+            "你的笑容比烦恼好看一百倍哦！",
+            "偷偷告诉你，烦恼最怕爱笑的人啦～",
+            "来，给你一朵小花花🌸，烦恼退散！",
+            "别担心，所有的烦恼都会变成惊喜的铺垫～",
+            "今天的烦恼已经过期啦，扔垃圾桶吧！",
+            "你知道吗？你笑起来的时候，星星都会多眨眼睛✨",
+            "给你讲个冷笑话：烦恼是什么？是用来被快乐打败的！",
+            "深呼吸～烦恼已经被风吹走啦🌬️",
+            "哇，你看！烦恼变成了小烟花🎆，消失啦！"
+        ];
+
+        // 随机可爱动画描述
+        const animations = [
+            "😺 小猫摇尾巴蹭你手心～",
+            "🌸 小花“砰”地绽放成爱心形状～",
+            "✨ 星星从屏幕里蹦出来对你眨眼～",
+            "🎈 粉色气球飘到你面前转圈圈～",
+            "🍬 彩虹色糖果“哗啦啦”落下来～",
+            "🌼 蒲公英被风吹散，带着烦恼飞走啦～",
+            "🐳 小鲸鱼从水里跃出，喷了一串小泡泡～",
+            "🌈 天边突然出现双彩虹，烦恼都被染成彩色啦～",
+            "🍉 大西瓜“嘭”地炸开，果肉变成笑脸～",
+            "🎵 音符从按钮里跳出来，组成一段小旋律～"
+        ];
+
+        const btn = document.getElementById('btn');
+        const messageEl = document.getElementById('message');
+        const animationEl = document.getElementById('animation');
+
+        btn.addEventListener('click', () => {
+            // 随机选句子和动画
+            const randomMsg = messages[Math.floor(Math.random() * messages.length)];
+            const randomAnim = animations[Math.floor(Math.random() * animations.length)];
+            
+            // 显示内容
+            messageEl.textContent = randomMsg;
+            animationEl.textContent = randomAnim;
+            
+            // 简单动画效果
+            animationEl.style.opacity = '0';
+            setTimeout(() => {
+                animationEl.style.opacity = '1';
+            }, 300);
+        });
+    </script>
+</body>
+</html>
